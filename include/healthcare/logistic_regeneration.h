@@ -1,19 +1,20 @@
 #ifndef _LOGISTIC_REGENERATION_H_
 #define _LOGISTIC_REGENERATION_H_
 
-#include "regeneration.h"
+#include "cached_regeneration.h"
 #include <vector>
 
 namespace healthcare {
 
-class LogisticRegeneration : public Regeneration {
+class LogisticRegeneration : public CachedRegeneration {
 public:
-  LogisticRegeneration(double gamma, double sigma, double r);
-  int GetHealthRegained(int health_investment, int health) const override;
+  LogisticRegeneration(double gamma, double delta, double r);
+  LogisticRegeneration(double gamma, double delta, double r, int max_investment);
 
 private:
+  int CalculateHealthRegained(int health, int health_investment) const override;
   double gamma_;
-  double sigma_;
+  double delta_;
   double r_;
 };
 
