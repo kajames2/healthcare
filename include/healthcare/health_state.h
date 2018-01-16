@@ -5,7 +5,7 @@
 
 namespace healthcare {
 struct HealthState {
-  HealthState() {}
+  HealthState() : period(0), cash(0), health(0), total_working_harvest(0) {}
   HealthState(int p, int h, int c, int twh)
       : period(p), health(h), cash(c), total_working_harvest(twh) {}
   int period;

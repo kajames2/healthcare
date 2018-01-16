@@ -1,8 +1,9 @@
 #ifndef _REGENERATION_H_
 #define _REGENERATION_H_
 
-namespace healthcare {
+#include <algorithm>
 
+namespace healthcare {
 class Regeneration {
  public:
   Regeneration() = default;
@@ -11,8 +12,6 @@ class Regeneration {
   virtual ~Regeneration() {}
 
   virtual int GetHealthRegained(int health, int health_investment) const = 0;
- private:
 };
-
 }  // namespace healthcare
 #endif  // _REGENERATION_H_
