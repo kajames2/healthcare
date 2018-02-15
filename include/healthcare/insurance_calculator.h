@@ -8,7 +8,7 @@ namespace healthcaredp {
 
 template <typename T> class InsuranceCalculator {
 public:
-  virtual double GetInsuranceCost(const T &state) const {
+  virtual double GetInsuranceCost(const T &state, const Shock &shock) const {
     return GetShockRecoveryCost(state) * prob_->GetProbability(state);
   }
   virtual double GetShockRecoveryCost(const T &state) const { return 0; }

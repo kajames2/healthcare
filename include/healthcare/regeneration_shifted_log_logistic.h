@@ -12,8 +12,11 @@ public:
   RegenerationShiftedLogLogistic(double alpha, double beta);
   RegenerationShiftedLogLogistic(double alpha, double beta, int max_investment);
 
-private:
+protected:
   int CalculateHealthRegained(int health, int health_investment) const override;
+  int CalculateRegainCost(int health, int health_regained) const override;
+
+ private:
   double alpha_, beta_;
 };
 

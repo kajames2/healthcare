@@ -12,10 +12,12 @@ public:
   explicit RegenerationShiftedLogistic(double k);
   RegenerationShiftedLogistic(double k, int max_investment);
 
-private:
+protected:
   int CalculateHealthRegained(int health, int health_investment) const override;
-  double k_;
+  int CalculateRegainCost(int health, int health_regained) const override;
 
+private:
+  double k_;
 };
 
 } // namespace healthcare

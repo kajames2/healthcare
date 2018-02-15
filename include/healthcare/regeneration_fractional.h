@@ -12,8 +12,11 @@ public:
   RegenerationFractional(double k);
   RegenerationFractional(double k, int max_investment);
 
-private:
+protected:
   int CalculateHealthRegained(int health, int health_investment) const override;
+  int CalculateRegainCost(int health, int health_regained) const override;
+
+ private:
   double k_;
 
 };

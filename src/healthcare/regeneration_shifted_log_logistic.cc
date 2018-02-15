@@ -28,4 +28,11 @@ int RegenerationShiftedLogLogistic::CalculateHealthRegained(
       health);
 }
 
+int RegenerationShiftedLogLogistic::CalculateRegainCost(
+    int health, int health_regained) const {
+  double term1 = std::pow(100.0 / (health + health_regained) - 1, -1 / beta_);
+  double term2 = std::pow(100.0 / health - 1, -1 / beta_);
+  return std::ceil(alpha_ * (term1 + term2));
+}
+
 } // namespace healthcare

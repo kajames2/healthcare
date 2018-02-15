@@ -9,10 +9,14 @@ namespace healthcare {
 class RegenerationLogistic : public RegenerationCached {
 public:
   RegenerationLogistic(double gamma, double delta, double r);
-  RegenerationLogistic(double gamma, double delta, double r, int max_investment);
+  RegenerationLogistic(double gamma, double delta, double r,
+                       int max_investment);
+
+protected:
+  int CalculateHealthRegained(int health, int health_investment) const override;
+  int CalculateRegainCost(int health, int health_regained) const override;
 
 private:
-  int CalculateHealthRegained(int health, int health_investment) const override;
   double gamma_;
   double delta_;
   double r_;

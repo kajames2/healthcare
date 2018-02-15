@@ -12,6 +12,7 @@ class Regeneration {
   virtual ~Regeneration() {}
 
   virtual int GetHealthRegained(int health, int health_investment) const = 0;
+  virtual int GetRegainCost(int health, int health_regained) const = 0;
 };
 }  // namespace healthcare
 #endif  // _REGENERATION_H_
