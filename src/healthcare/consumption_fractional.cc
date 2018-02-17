@@ -7,7 +7,7 @@
 namespace healthcare {
 
 ConsumptionFractional::ConsumptionFractional(double j)
-    : j_(j), ConsumptionCached(300) {
+    : j_(j), ConsumptionCached() {
   FillCache();
 }
 ConsumptionFractional::ConsumptionFractional(double j, int max_investment)

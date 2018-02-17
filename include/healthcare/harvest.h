@@ -4,19 +4,22 @@
 #include "health_state.h"
 
 namespace healthcare {
-class Harvest{
+class Harvest {
 public:
-  virtual int GetWorkingHarvest(const HealthState& state) const { return GetHarvest(state); }
   virtual bool InRange(int period) const = 0;
-  virtual int GetHarvest(const HealthState& state) const {
+  virtual int GetHarvest(const HealthState &state) const {
     return InRange(state.period) ? CalculateHarvest(state) : 0;
   };
+  virtual int GetWorkingHarvest(const HealthState &state) const {
+    return GetHarvest(state);
+  }
   Harvest() = default;
-  Harvest(const Harvest&) = delete;
-  Harvest& operator=(const Harvest&) = delete;
+  Harvest(const Harvest &) = delete;
+  Harvest &operator=(const Harvest &) = delete;
   virtual ~Harvest() {}
- protected:
-  virtual int CalculateHarvest(const HealthState& state) const = 0;
+
+protected:
+  virtual int CalculateHarvest(const HealthState &state) const = 0;
 };
 } // namespace healthcare
 #endif // _HARVEST_H_

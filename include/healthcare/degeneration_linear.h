@@ -6,7 +6,7 @@
 namespace healthcare {
 class DegenerationLinear : public Degeneration {
 public:
-  DegenerationLinear(double degen_intercept);
+  explicit DegenerationLinear(double degen_intercept);
   DegenerationLinear(double degen_intercept, double degen_slope);
   int GetDegeneration(int period) const override;
 

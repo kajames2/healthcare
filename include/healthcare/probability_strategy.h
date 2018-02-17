@@ -7,6 +7,7 @@ template <typename T>
 class ProbabilityStrategy {
  public:
   virtual double GetProbability(const T &state) const = 0;
+  virtual ~ProbabilityStrategy() {}
 };
 
 }  // namespace genericdp

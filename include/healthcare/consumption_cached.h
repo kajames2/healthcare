@@ -12,7 +12,8 @@ public:
   ConsumptionCached() : cache_(300) {}
   ConsumptionCached(int max_investment) : cache_(max_investment + 1){};
 
-  virtual double GetLifeEnjoyment(int health, int life_investment) const override {
+  virtual double GetLifeEnjoyment(int health,
+                                  int life_investment) const override {
     return cache_[life_investment][health];
   };
 
@@ -24,11 +25,12 @@ protected:
       }
     }
   }
+  virtual double CalculateLifeEnjoyment(int health,
+                                        int life_investment) const = 0;
 
 private:
-  virtual double CalculateLifeEnjoyment(int health, int life_investment) const = 0;
   std::vector<std::array<double, 101>> cache_;
 };
 
 } // namespace healthcare
-#endif  // _CONSUMPTION_CACHED_H_
+#endif // _CONSUMPTION_CACHED_H_

@@ -4,7 +4,7 @@
 #include "health_state_shock.h"
 
 namespace healthcare {
-struct HealthStateFitness : public HealthState{
+struct HealthStateFitness : public HealthStateShock {
   HealthStateFitness() : HealthStateShock(), fitness(0) {}
   int fitness;
 };

@@ -4,8 +4,8 @@
 #include "consumption_cached.h"
 
 #include <array>
-#include <vector>
 #include <memory>
+#include <vector>
 
 namespace healthcare {
 
@@ -14,8 +14,10 @@ public:
   ConsumptionFractional(double j);
   ConsumptionFractional(double j, int max_investment);
 
-private:
+protected:
   double CalculateLifeEnjoyment(int health, int life_investment) const override;
+
+private:
   double j_;
 };
 
