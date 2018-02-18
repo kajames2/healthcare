@@ -6,32 +6,20 @@
 
 #include "harvest.h"
 #include "health_state.h"
+#include "period_range.h"
 
 namespace healthcare {
 class HarvestComposite : public Harvest {
 public:
   HarvestComposite();
-  HarvestComposite(std::vector<std::shared_ptr<Harvest>> harvest_strats);
-  int GetWorkingHarvest(const HealthState &state) const override;
-  void AddHarvest(std::shared_ptr<const Harvest> harvest);
-  bool InRange(int period) const override;
-
-protected:
-  int CalculateHarvest(const HealthState &state) const override;
+  bool IsWorking(const HealthState &state) const override;
+  int GetHarvest(const HealthState &state) const override;
+  void AddHarvest(PeriodRange range, std::unique_ptr<const Harvest> harvest);
 
 private:
-  class NullHarvest;
-  const Harvest& GetHarvestInRange(int period) const;
-
-  std::vector<std::shared_ptr<const Harvest>> harvest_strats_;
-  std::unique_ptr<NullHarvest> null_harvest_;
-
-  class NullHarvest : public Harvest {
-   public:
-    bool InRange(int period) const override { return false; }
-   protected:
-    int CalculateHarvest(const HealthState& state) const override { return -1; }
-  };
+  int GetHarvestIndex(int period) const;
+  std::vector<std::unique_ptr<const Harvest>> harvests_;
+  std::vector<PeriodRange> ranges_;
 };
 } // namespace healthcare
 #endif // _HARVEST_COMPOSITE_H_

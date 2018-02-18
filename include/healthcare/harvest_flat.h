@@ -8,21 +8,10 @@ namespace healthcare {
 
 class HarvestFlat : public Harvest {
 public:
-  HarvestFlat(int first_period, int last_period, int harvest)
-      : first_period_(first_period), last_period_(last_period),
-        harvest_(harvest) {}
-  bool InRange(int period) const override {
-    return period >= first_period_ && period <= last_period_;
-  }
-
-protected:
-  int CalculateHarvest(const HealthState &state) const override {
-    return harvest_;
-  };
+  HarvestFlat(int harvest) : harvest_(harvest) {}
+  int GetHarvest(const HealthState &state) const override { return harvest_; };
 
 private:
-  int first_period_;
-  int last_period_;
   int harvest_;
 };
 

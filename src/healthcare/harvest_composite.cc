@@ -1,41 +1,41 @@
 #include "harvest_composite.h"
 #include "harvest.h"
 #include "health_state.h"
+#include "period_range.h"
 
 #include <vector>
 
 namespace healthcare {
-HarvestComposite::HarvestComposite()
-    : harvest_strats_() {
-  null_harvest_ = std::make_unique<NullHarvest>();
-}
+HarvestComposite::HarvestComposite() : harvests_(), ranges_() {}
 
-int HarvestComposite::CalculateHarvest(const HealthState &state) const {
-  return GetHarvestInRange(state.period).GetHarvest(state);
-}
-
-int HarvestComposite::GetWorkingHarvest(const HealthState &state) const {
-    return GetHarvestInRange(state.period).GetWorkingHarvest(state);
-}
-
-void HarvestComposite::AddHarvest(std::shared_ptr<const Harvest> state) {
-  harvest_strats_.push_back(state);
-}
-
-bool HarvestComposite::InRange(int period) const {
-  for (auto strat : harvest_strats_) {
-    if (strat->InRange(period))
-      return true;
+bool HarvestComposite::IsWorking(const HealthState &state) const {
+  int i = GetHarvestIndex(state.period);
+  if (i == ranges_.size()) {
+    return false;
   }
-  return false;
+  return harvests_[i]->IsWorking(state);
 }
 
-const Harvest&
-HarvestComposite::GetHarvestInRange(int period) const {
-  for (auto strat : harvest_strats_) {
-    if (strat->InRange(period))
-      return *strat;
+int HarvestComposite::GetHarvest(const HealthState &state) const {
+  int i = GetHarvestIndex(state.period);
+  if (i == ranges_.size()) {
+    return 0;
   }
-  return *null_harvest_;
+  return harvests_[i]->GetHarvest(state);
+}
+
+void HarvestComposite::AddHarvest(PeriodRange range,
+                                  std::unique_ptr<const Harvest> state) {
+  ranges_.push_back(range);
+  harvests_.push_back(std::move(state));
+}
+
+int HarvestComposite::GetHarvestIndex(int period) const {
+  for (int i = 0; i < ranges_.size(); ++i) {
+    if (InRange(ranges_[i], period)) {
+      return i;
+    }
+  }
+  return ranges_.size();
 }
 } // namespace healthcare

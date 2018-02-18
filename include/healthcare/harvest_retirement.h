@@ -7,16 +7,13 @@
 namespace healthcare {
 class HarvestRetirement : public Harvest {
 public:
-  HarvestRetirement(int first_period, double earning_frac);
-  int GetWorkingHarvest(const HealthState &state) const override { return 0; }
-  bool InRange(int period) const override;
-
-protected:
-  int CalculateHarvest(const HealthState &state) const override;
+  HarvestRetirement(int n_working_periods, double earning_frac);
+  bool IsWorking(const HealthState &state) const override { return false; }
+  int GetHarvest(const HealthState &state) const override;
 
 private:
   double earning_frac_;
-  int first_period_;
+  int n_working_periods_;
 };
 } // namespace healthcare
 #endif // _HARVEST_RETIREMENT_H_

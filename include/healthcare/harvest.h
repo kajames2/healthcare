@@ -6,20 +6,12 @@
 namespace healthcare {
 class Harvest {
 public:
-  virtual bool InRange(int period) const = 0;
-  virtual int GetHarvest(const HealthState &state) const {
-    return InRange(state.period) ? CalculateHarvest(state) : 0;
-  };
-  virtual int GetWorkingHarvest(const HealthState &state) const {
-    return GetHarvest(state);
+  virtual int GetHarvest(const HealthState &state) const = 0;
+  virtual bool IsWorking(const HealthState &state) const { return true; }
+  int GetWorkingHarvest(const HealthState &state) const {
+    return this->IsWorking(state) ? GetHarvest(state) : 0;
   }
-  Harvest() = default;
-  Harvest(const Harvest &) = delete;
-  Harvest &operator=(const Harvest &) = delete;
   virtual ~Harvest() {}
-
-protected:
-  virtual int CalculateHarvest(const HealthState &state) const = 0;
 };
 } // namespace healthcare
 #endif // _HARVEST_H_
