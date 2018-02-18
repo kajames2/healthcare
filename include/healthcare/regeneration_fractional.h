@@ -1,24 +1,18 @@
 #ifndef _REGENERATION_FRACTIONAL_H_
 #define _REGENERATION_FRACTIONAL_H_
 
-#include "regeneration_cached.h"
-#include <array>
-#include <vector>
+#include "regeneration.h"
 
 namespace healthcare {
 
-class RegenerationFractional : public RegenerationCached {
+class RegenerationFractional : public Regeneration {
 public:
   RegenerationFractional(double k);
-  RegenerationFractional(double k, int max_investment);
+  int GetHealthRegained(int health, int health_investment) const override;
+  int GetRegainCost(int health, int health_regained) const override;
 
-protected:
-  int CalculateHealthRegained(int health, int health_investment) const override;
-  int CalculateRegainCost(int health, int health_regained) const override;
-
- private:
+private:
   double k_;
-
 };
 
 } // namespace healthcare

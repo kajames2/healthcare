@@ -1,20 +1,15 @@
 #ifndef _REGENERATION_SHIFTED_LOGISTIC_H_
 #define _REGENERATION_SHIFTED_LOGISTIC_H_
 
-#include "regeneration_cached.h"
-#include <array>
-#include <vector>
+#include "regeneration.h"
 
 namespace healthcare {
 
-class RegenerationShiftedLogistic : public RegenerationCached {
+class RegenerationShiftedLogistic : public Regeneration {
 public:
   explicit RegenerationShiftedLogistic(double k);
-  RegenerationShiftedLogistic(double k, int max_investment);
-
-protected:
-  int CalculateHealthRegained(int health, int health_investment) const override;
-  int CalculateRegainCost(int health, int health_regained) const override;
+  int GetHealthRegained(int health, int health_investment) const override;
+  int GetRegainCost(int health, int health_regained) const override;
 
 private:
   double k_;

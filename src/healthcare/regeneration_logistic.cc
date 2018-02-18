@@ -1,28 +1,19 @@
 #include "regeneration_logistic.h"
 #include <cmath>
-#include <vector>
 
 namespace healthcare {
 
 RegenerationLogistic::RegenerationLogistic(double gamma, double delta, double r)
-    : gamma_(gamma), delta_(delta), r_(r), RegenerationCached(300) {
-  FillCache();
-}
-RegenerationLogistic::RegenerationLogistic(double gamma, double delta, double r,
-                                           int max_investment)
-    : gamma_(gamma), delta_(delta), r_(r), RegenerationCached(max_investment) {
-  FillCache();
-}
+    : gamma_(gamma), delta_(delta), r_(r) {}
 
-int RegenerationLogistic::CalculateHealthRegained(int health,
-                                                  int health_investment) const {
+int RegenerationLogistic::GetHealthRegained(int health,
+                                            int health_investment) const {
   return static_cast<int>(
       gamma_ * (1 - std::exp(-1 * delta_ * health_investment)) /
       (1.0 + std::exp((-1) * delta_ * health_investment - r_)));
 }
 
-int RegenerationLogistic::CalculateRegainCost(int health,
-                                              int health_regained) const {
+int RegenerationLogistic::GetRegainCost(int health, int health_regained) const {
   return std::ceil(1 / delta_ *
                    std::log((health_regained * std::exp(-r_) + gamma_) /
                             (gamma_ - health_regained)));
