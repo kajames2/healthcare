@@ -1,20 +1,16 @@
 #ifndef _CONSUMPTION_INCREASING_DECAY_H_
 #define _CONSUMPTION_INCREASING_DECAY_H_
 
-#include "consumption_cached.h"
-
-#include <vector>
+#include "consumption.h"
 
 namespace healthcare {
 
-class ConsumptionIncreasingDecay : public ConsumptionCached {
+class ConsumptionIncreasingDecay : public Consumption {
 public:
   ConsumptionIncreasingDecay(double alpha, double beta, double c);
-  ConsumptionIncreasingDecay(double alpha, double beta, double c,
-                             int max_investment);
+  double GetLifeEnjoyment(int health, int life_investment) const override;
 
 private:
-  double CalculateLifeEnjoyment(int health, int life_investment) const override;
   double alpha_;
   double beta_;
   double c_;

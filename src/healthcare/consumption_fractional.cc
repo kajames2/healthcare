@@ -1,23 +1,11 @@
 #include "consumption_fractional.h"
-#include <cmath>
-
-#include <iostream>
-#include <memory>
 
 namespace healthcare {
 
-ConsumptionFractional::ConsumptionFractional(double j)
-    : j_(j), ConsumptionCached() {
-  FillCache();
-}
-ConsumptionFractional::ConsumptionFractional(double j, int max_investment)
-    : j_(j), ConsumptionCached(max_investment) {
-  FillCache();
-}
+ConsumptionFractional::ConsumptionFractional(double j) : j_(j) {}
 
-double
-ConsumptionFractional::CalculateLifeEnjoyment(int health,
-                                              int life_investment) const {
+double ConsumptionFractional::GetLifeEnjoyment(int health,
+                                               int life_investment) const {
   return health * life_investment / (life_investment + j_);
 }
 

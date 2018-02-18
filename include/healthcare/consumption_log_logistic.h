@@ -1,20 +1,16 @@
 #ifndef _CONSUMPTION_LOG_LOGISTIC_H_
 #define _CONSUMPTION_LOG_LOGISTIC_H_
 
-#include "consumption_cached.h"
-#include <array>
-#include <vector>
+#include "consumption.h"
 
 namespace healthcare {
 
-class ConsumptionLogLogistic : public ConsumptionCached {
+class ConsumptionLogLogistic : public Consumption {
 public:
   ConsumptionLogLogistic(double alpha, double beta, double c);
-  ConsumptionLogLogistic(double alpha, double beta, double c,
-                         int max_investment);
+  double GetLifeEnjoyment(int health, int life_investment) const override;
 
-private:
-  double CalculateLifeEnjoyment(int health, int life_investment) const override;
+ private:
   double alpha_, beta_, c_;
 };
 
