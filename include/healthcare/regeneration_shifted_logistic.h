@@ -2,7 +2,6 @@
 #define _REGENERATION_SHIFTED_LOGISTIC_H_
 
 #include "regeneration.h"
-
 namespace healthcare {
 
 class RegenerationShiftedLogistic : public Regeneration {
@@ -13,6 +12,7 @@ public:
 
 private:
   double k_;
+  
 };
 
 } // namespace healthcare
