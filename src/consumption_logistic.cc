@@ -1,4 +1,4 @@
-#include "consumption_logistic.h"
+#include "healthcare/consumption_logistic.h"
 
 #include <cmath>
 
@@ -11,4 +11,4 @@ double ConsumptionLogistic::GetLifeEnjoyment(int health,
   return health * 1.0 / (1.0 + std::exp(-1 * k_ * life_investment));
 }
 
-} // namespace healthcare
+}  // namespace healthcare

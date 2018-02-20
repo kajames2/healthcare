@@ -1,5 +1,5 @@
-#ifndef _REGENERATION_H_
-#define _REGENERATION_H_
+#ifndef _HEALTHCARE_REGENERATION_H_
+#define _HEALTHCARE_REGENERATION_H_
 
 #include <algorithm>
 
@@ -12,4 +12,4 @@ class Regeneration {
   virtual int GetRegainCost(int health, int health_regained) const = 0;
 };
 }  // namespace healthcare
-#endif  // _REGENERATION_H_
+#endif  // _HEALTHCARE_REGENERATION_H_

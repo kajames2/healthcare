@@ -1,14 +1,15 @@
-#ifndef _PROBABILITY_FITNESS_MODULATED_H_
-#define _PROBABILITY_FITNESS_MODULATED_H_
+#ifndef _HEALTHCARE_PROBABILITY_FITNESS_MODULATED_H_
+#define _HEALTHCARE_PROBABILITY_FITNESS_MODULATED_H_
 
-#include "probability_strategy.h"
 #include <vector>
+
+#include "healthcare/probability_strategy.h"
 
 namespace healthcaredp {
 
 template <typename T>
 class ProbabilityFitnessModulated : public genericdp::ProbabilityStrategy<T> {
-public:
+ public:
   ProbabilityFitnessModulated(
       std::shared_ptr<genericdp::ProbabilityStrategy<T>> prob,
       std::vector<double> mods)
@@ -17,11 +18,11 @@ public:
     return mods_[state.fitness] * prob_.GetProbability(state);
   }
 
-private:
+ private:
   std::shared_ptr<genericdp::ProbabilityStrategy<T>> prob_;
   std::vector<double> mods_;
 };
 
-} // namespace genericdp
+}  // namespace healthcaredp
 
-#endif //_FITNESS_MODULATED_PROBABILITY_H_
+#endif  //_HEALTHCARE_FITNESS_MODULATED_PROBABILITY_H_

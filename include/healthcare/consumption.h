@@ -1,5 +1,5 @@
-#ifndef _CONSUMPTION_H_
-#define _CONSUMPTION_H_
+#ifndef _HEALTHCARE_CONSUMPTION_H_
+#define _HEALTHCARE_CONSUMPTION_H_
 
 namespace healthcare {
 
@@ -10,4 +10,4 @@ class Consumption {
 };
 
 }  // namespace healthcare
-#endif  // _CONSUMPTION_H_
+#endif  // _HEALTHCARE_CONSUMPTION_H_

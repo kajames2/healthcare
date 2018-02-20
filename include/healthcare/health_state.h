@@ -1,16 +1,34 @@
-#ifndef _HEALTH_STATE_H_
-#define _HEALTH_STATE_H_
+#ifndef _HEALTHCARE_HEALTH_STATE_H_
+#define _HEALTHCARE_HEALTH_STATE_H_
 
 namespace healthcare {
 struct HealthState {
   HealthState()
-      : period(0), health(0), cash(0), total_working_harvest(0), harvest(0),
-        life_investment(0), health_investment(0), end_health(0), end_cash(0),
-        investment_cash(0), investment_health(0), life_enjoyment(0) {}
+      : period(0),
+        health(0),
+        cash(0),
+        total_working_harvest(0),
+        harvest(0),
+        life_investment(0),
+        health_investment(0),
+        end_health(0),
+        end_cash(0),
+        investment_cash(0),
+        investment_health(0),
+        life_enjoyment(0) {}
   HealthState(int p, int h, int c, int twh)
-      : period(p), health(h), cash(c), total_working_harvest(twh), harvest(0),
-        life_investment(0), health_investment(0), end_health(0), end_cash(0),
-        investment_cash(0), investment_health(0), life_enjoyment(0) {}
+      : period(p),
+        health(h),
+        cash(c),
+        total_working_harvest(twh),
+        harvest(0),
+        life_investment(0),
+        health_investment(0),
+        end_health(0),
+        end_cash(0),
+        investment_cash(0),
+        investment_health(0),
+        life_enjoyment(0) {}
 
   int period;
   int health;
@@ -29,5 +47,5 @@ struct HealthState {
 };
 
 bool IsAlive(const HealthState &state);
-} // namespace healthcare
-#endif // _HEALTH_STATE_H_
+}  // namespace healthcare
+#endif  // _HEALTHCARE_HEALTH_STATE_H_

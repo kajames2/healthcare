@@ -1,4 +1,4 @@
-#include "consumption_increasing_decay.h"
+#include "healthcare/consumption_increasing_decay.h"
 
 #include <cmath>
 
@@ -13,4 +13,4 @@ double ConsumptionIncreasingDecay::GetLifeEnjoyment(int health,
          (1 - std::exp(-alpha_ * life_investment));
 }
 
-} // namespace healthcare
+}  // namespace healthcare

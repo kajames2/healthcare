@@ -1,5 +1,5 @@
-#ifndef _PROBABILITY_STRATEGY_H_
-#define _PROBABILITY_STRATEGY_H_
+#ifndef _HEALTHCARE_PROBABILITY_STRATEGY_H_
+#define _HEALTHCARE_PROBABILITY_STRATEGY_H_
 
 namespace genericdp {
 
@@ -12,4 +12,4 @@ class ProbabilityStrategy {
 
 }  // namespace genericdp
 
-#endif  //_PROBABILITY_STRATEGY_H_
+#endif  //_HEALTHCARE_PROBABILITY_STRATEGY_H_

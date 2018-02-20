@@ -1,11 +1,11 @@
-#ifndef _HARVEST_H_
-#define _HARVEST_H_
+#ifndef _HEALTHCARE_HARVEST_H_
+#define _HEALTHCARE_HARVEST_H_
 
-#include "health_state.h"
+#include "healthcare/health_state.h"
 
 namespace healthcare {
 class Harvest {
-public:
+ public:
   virtual int GetHarvest(const HealthState &state) const = 0;
   virtual bool IsWorking(const HealthState &state) const { return true; }
   int GetWorkingHarvest(const HealthState &state) const {
@@ -13,5 +13,5 @@ public:
   }
   virtual ~Harvest() {}
 };
-} // namespace healthcare
-#endif // _HARVEST_H_
+}  // namespace healthcare
+#endif  // _HEALTHCARE_HARVEST_H_

@@ -1,14 +1,16 @@
-#include "harvest_flat.h"
-#include "health_state.h"
-#include <gtest/gtest.h>
+#include "healthcare/harvest_flat.h"
 
 #include <memory>
 
+#include <gtest/gtest.h>
+
+#include "healthcare/health_state.h"
+
 class HarvestFlatTest : public ::testing::Test {
-public:
+ public:
   HarvestFlatTest() : state_(0, 0, 0, 0), harvest_() {}
 
-protected:
+ protected:
   virtual void SetUp() {
     state_ = healthcare::HealthState(1, 60, 20, 0);
     harvest_ = std::make_unique<healthcare::HarvestFlat>(85);

@@ -1,7 +1,7 @@
-#ifndef _HEALTH_STATE_FITNESS_H_
-#define _HEALTH_STATE_FITNESS_H_
+#ifndef _HEALTHCARE_HEALTH_STATE_FITNESS_H_
+#define _HEALTHCARE_HEALTH_STATE_FITNESS_H_
 
-#include "health_state_shock.h"
+#include "healthcare/health_state_shock.h"
 
 namespace healthcare {
 struct HealthStateFitness : public HealthStateShock {
@@ -9,5 +9,5 @@ struct HealthStateFitness : public HealthStateShock {
   int fitness;
 };
 
-} // namespace healthcare
-#endif // _HEALTH_STATE_FITNESS_H_
+}  // namespace healthcare
+#endif  // _HEALTHCARE_HEALTH_STATE_FITNESS_H_

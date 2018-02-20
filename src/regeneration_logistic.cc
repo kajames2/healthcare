@@ -1,4 +1,5 @@
-#include "regeneration_logistic.h"
+#include "healthcare/regeneration_logistic.h"
+
 #include <cmath>
 
 namespace healthcare {
@@ -19,4 +20,4 @@ int RegenerationLogistic::GetRegainCost(int health, int health_regained) const {
                             (gamma_ - health_regained)));
 }
 
-} // namespace healthcare
+}  // namespace healthcare

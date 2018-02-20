@@ -1,4 +1,4 @@
-#include "regeneration_shifted_logistic.h"
+#include "healthcare/regeneration_shifted_logistic.h"
 
 #include <cmath>
 
@@ -22,4 +22,4 @@ int RegenerationShiftedLogistic::GetRegainCost(int health,
                                  health * (100 - health - health_regained)))));
 }
 
-} // namespace healthcare
+}  // namespace healthcare

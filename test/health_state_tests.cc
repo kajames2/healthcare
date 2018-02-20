@@ -1,13 +1,15 @@
-#include "health_state.h"
+#include "healthcare/health_state.h"
+
 #include <gtest/gtest.h>
 
 class HealthStateTest : public ::testing::Test {
-public:
+ public:
   HealthStateTest()
-      : alive_state_(0, 0, 0, 0), dead_state_(0, 0, 0, 0),
+      : alive_state_(0, 0, 0, 0),
+        dead_state_(0, 0, 0, 0),
         dead_state_2_(0, 0, 0, 0) {}
 
-protected:
+ protected:
   virtual void SetUp() {
     dead_state_2_ = healthcare::HealthState(5, -10, 0, 0);
     dead_state_ = healthcare::HealthState(2, 0, 0, 0);

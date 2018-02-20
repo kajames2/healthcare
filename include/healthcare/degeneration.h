@@ -1,13 +1,13 @@
-#ifndef _DEGENERATION_H_
-#define _DEGENERATION_H_
+#ifndef _HEALTHCARE_DEGENERATION_H_
+#define _HEALTHCARE_DEGENERATION_H_
 
 namespace healthcare {
 
 class Degeneration {
-public:
+ public:
   virtual int GetDegeneration(int period) const = 0;
   virtual ~Degeneration() {}
 };
 
-} // namespace healthcare
-#endif // _DEGENERATION_H_
+}  // namespace healthcare
+#endif  // _HEALTHCARE_DEGENERATION_H_

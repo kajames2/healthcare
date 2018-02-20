@@ -1,4 +1,5 @@
-#include "regeneration_fractional.h"
+#include "healthcare/regeneration_fractional.h"
+
 #include <cmath>
 
 namespace healthcare {
@@ -15,4 +16,4 @@ int RegenerationFractional::GetRegainCost(int health,
   return std::ceil((k_ * health_regained) / (100 - health - health_regained));
 }
 
-} // namespace healthcare
+}  // namespace healthcare

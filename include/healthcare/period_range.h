@@ -1,5 +1,5 @@
-#ifndef _PERIOD_RANGE_H_
-#define _PERIOD_RANGE_H_
+#ifndef _HEALTHCARE_PERIOD_RANGE_H_
+#define _HEALTHCARE_PERIOD_RANGE_H_
 
 namespace healthcare {
 
@@ -9,6 +9,6 @@ struct PeriodRange {
 };
 
 bool InRange(PeriodRange range, int period);
-} // namespace healthcare
+}  // namespace healthcare
 
-#endif // _PERIOD_RANGE_H_
+#endif  // _HEALTHCARE_PERIOD_RANGE_H_

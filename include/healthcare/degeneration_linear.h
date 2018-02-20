@@ -1,19 +1,19 @@
-#ifndef _DEGENERATION_LINEAR_H_
-#define _DEGENERATION_LINEAR_H_
+#ifndef _HEALTHCARE_DEGENERATION_LINEAR_H_
+#define _HEALTHCARE_DEGENERATION_LINEAR_H_
 
-#include "degeneration.h"
+#include "healthcare/degeneration.h"
 
 namespace healthcare {
 class DegenerationLinear : public Degeneration {
-public:
+ public:
   explicit DegenerationLinear(double degen_intercept);
   DegenerationLinear(double degen_intercept, double degen_slope);
   int GetDegeneration(int period) const override;
 
-private:
+ private:
   double degen_slope_;
   double degen_intercept_;
 };
 
-} // namespace healthcare
-#endif // _DEGENERATION_LINEAR_H_
+}  // namespace healthcare
+#endif  // _HEALTHCARE_DEGENERATION_LINEAR_H_

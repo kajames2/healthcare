@@ -1,4 +1,4 @@
-#include "regeneration_shifted_log_logistic.h"
+#include "healthcare/regeneration_shifted_log_logistic.h"
 
 #include <cmath>
 
@@ -27,4 +27,4 @@ int RegenerationShiftedLogLogistic::GetRegainCost(int health,
   return std::ceil(alpha_ * (term1 + term2));
 }
 
-} // namespace healthcare
+}  // namespace healthcare

@@ -1,23 +1,23 @@
-#include "consumption_precompute_decorator.h"
+#include "healthcare/consumption_precompute_decorator.h"
 
 namespace healthcare {
 
 ConsumptionPrecomputeDecorator::ConsumptionPrecomputeDecorator(
     const Consumption &consumption)
-    : cache_(300) {
+    : cache_(301) {
   Precompute(consumption);
 }
+
 ConsumptionPrecomputeDecorator::ConsumptionPrecomputeDecorator(
     const Consumption &consumption, int max_investment)
     : cache_(max_investment + 1) {
   Precompute(consumption);
-};
+}
 
-double
-ConsumptionPrecomputeDecorator::GetLifeEnjoyment(int health,
-                                                 int life_investment) const {
+double ConsumptionPrecomputeDecorator::GetLifeEnjoyment(
+    int health, int life_investment) const {
   return cache_[life_investment][health];
-};
+}
 
 void ConsumptionPrecomputeDecorator::Precompute(
     const Consumption &consumption) {
@@ -27,4 +27,4 @@ void ConsumptionPrecomputeDecorator::Precompute(
     }
   }
 }
-}
+}  // namespace healthcare

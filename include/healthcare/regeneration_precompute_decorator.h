@@ -1,25 +1,25 @@
-#ifndef _REGENERATION_PRECOMPUTE_DECORATOR_H_
-#define _REGENERATION_PRECOMPUTE_DECORATOR_H_
-
-#include "regeneration.h"
+#ifndef _HEALTHCARE_REGENERATION_PRECOMPUTE_DECORATOR_H_
+#define _HEALTHCARE_REGENERATION_PRECOMPUTE_DECORATOR_H_
 
 #include <array>
 #include <vector>
 
+#include "healthcare/regeneration.h"
+
 namespace healthcare {
 class RegenerationPrecomputeDecorator : public Regeneration {
-public:
+ public:
   explicit RegenerationPrecomputeDecorator(const Regeneration &regen);
-  RegenerationPrecomputeDecorator(const Regeneration &regen, int max_investment);
-  virtual int GetHealthRegained(int health,
-                                int health_investment) const override;
-  virtual int GetRegainCost(int health, int health_regained) const override;
+  RegenerationPrecomputeDecorator(const Regeneration &regen,
+                                  int max_investment);
+  int GetHealthRegained(int health, int health_investment) const override;
+  int GetRegainCost(int health, int health_regained) const override;
 
-private:
+ private:
   void Precompute(const Regeneration &regen);
   std::vector<std::array<int, 101>> cache_;
   std::array<std::array<int, 101>, 101> cache2_;
 };
 
-} // namespace healthcare
-#endif // _REGENERATION_PRECOMPUTE_DECORATOR_H_
+}  // namespace healthcare
+#endif  // _HEALTHCARE_REGENERATION_PRECOMPUTE_DECORATOR_H_

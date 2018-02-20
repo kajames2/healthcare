@@ -1,21 +1,24 @@
-#ifndef _INSURANCE_CALCULATOR_H_
-#define _INSURANCE_CALCULATOR_H_
+#ifndef _HEALTHCARE_INSURANCE_CALCULATOR_H_
+#define _HEALTHCARE_INSURANCE_CALCULATOR_H_
 
-#include "probability_strategy.h"
 #include <memory>
+
+#include "healthcare/probability_strategy.h"
 
 namespace healthcaredp {
 
-template <typename T> class InsuranceCalculator {
-public:
+template <typename T>
+class InsuranceCalculator {
+ public:
   virtual double GetInsuranceCost(const T &state, const Shock &shock) const {
     return GetShockRecoveryCost(state) * prob_->GetProbability(state);
   }
   virtual double GetShockRecoveryCost(const T &state) const { return 0; }
-private:
+
+ private:
   std::shared_ptr<genericdp::ProbabilityStrategy<T>> prob_;
 };
 
-} // namespace genericdp
+}  // namespace healthcaredp
 
-#endif //_INSURANCE_CALCULATOR_H_
+#endif  //_HEALTHCARE_INSURANCE_CALCULATOR_H_

@@ -1,27 +1,29 @@
-#ifndef _RECOVERY_FIXED_COST_H_
-#define _RECOVERY_FIXED_COST_H_
+#ifndef _HEALTHCARE_RECOVERY_FIXED_COST_H_
+#define _HEALTHCARE_RECOVERY_FIXED_COST_H_
 
-#include "insurance_calculator.h"
 #include <memory>
+
+#include "healthcare/insurance_calculator.h"
 
 namespace healthcaredp {
 
-template <typename T> class RecoveryFixedCost : public InsuranceCalculator<T> {
-public:
+template <typename T>
+class RecoveryFixedCost : public InsuranceCalculator<T> {
+ public:
   explicit RecoveryFixedCost(int cost) : cost_(cost) {}
   RecoveryFixedCost(int cost, std::shared_ptr<InsuranceCalculator<T>> calc)
       : cost_(cost), calc_(calc) {}
 
-protected:
+ protected:
   int GetShockRecoveryCost(const T &state) const override {
     return cost_ + calc_->GetShockRecoveryCost();
   }
 
-private:
+ private:
   std::shared_ptr<InsuranceCalculator<T>> calc_;
   int cost_;
 };
 
-} // namespace genericdp
+}  // namespace healthcaredp
 
-#endif // _RECOVERY_FIXED_COST_H_
+#endif  // _HEALTHCARE_RECOVERY_FIXED_COST_H_

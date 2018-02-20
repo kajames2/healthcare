@@ -1,4 +1,4 @@
-#include "regeneration_precompute_decorator.h"
+#include "healthcare/regeneration_precompute_decorator.h"
 
 namespace healthcare {
 
@@ -12,17 +12,17 @@ RegenerationPrecomputeDecorator::RegenerationPrecomputeDecorator(
     const Regeneration &regen, int max_investment)
     : cache_(max_investment + 1) {
   Precompute(regen);
-};
+}
 
 int RegenerationPrecomputeDecorator::GetHealthRegained(
     int health, int health_investment) const {
   return cache_[health_investment][health];
-};
+}
 
 int RegenerationPrecomputeDecorator::GetRegainCost(int health,
                                                    int health_regained) const {
   return cache2_[health_regained][health];
-};
+}
 
 void RegenerationPrecomputeDecorator::Precompute(const Regeneration &regen) {
   for (int hi = 0; hi < cache_.size(); ++hi) {
@@ -37,4 +37,4 @@ void RegenerationPrecomputeDecorator::Precompute(const Regeneration &regen) {
     }
   }
 }
-}
+}  // namespace healthcare

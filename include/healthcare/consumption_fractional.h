@@ -1,18 +1,18 @@
-#ifndef _CONSUMPTION_FRACTIONAL_H_
-#define _CONSUMPTION_FRACTIONAL_H_
+#ifndef _HEALTHCARE_CONSUMPTION_FRACTIONAL_H_
+#define _HEALTHCARE_CONSUMPTION_FRACTIONAL_H_
 
-#include "consumption.h"
+#include "healthcare/consumption.h"
 
 namespace healthcare {
 
 class ConsumptionFractional : public Consumption {
-public:
+ public:
   explicit ConsumptionFractional(double j);
   double GetLifeEnjoyment(int health, int life_investment) const override;
 
-private:
+ private:
   double j_;
 };
 
-} // namespace healthcare
-#endif // _CONSUMPTION_FRACTIONAL_H_
+}  // namespace healthcare
+#endif  // _HEALTHCARE_CONSUMPTION_FRACTIONAL_H_

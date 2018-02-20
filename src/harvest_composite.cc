@@ -1,9 +1,10 @@
-#include "harvest_composite.h"
-#include "harvest.h"
-#include "health_state.h"
-#include "period_range.h"
+#include "healthcare/harvest_composite.h"
 
 #include <vector>
+
+#include "healthcare/harvest.h"
+#include "healthcare/health_state.h"
+#include "healthcare/period_range.h"
 
 namespace healthcare {
 HarvestComposite::HarvestComposite() : harvests_(), ranges_() {}
@@ -38,4 +39,4 @@ int HarvestComposite::GetHarvestIndex(int period) const {
   }
   return ranges_.size();
 }
-} // namespace healthcare
+}  // namespace healthcare

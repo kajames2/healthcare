@@ -1,20 +1,22 @@
-#include "harvest_composite.h"
-#include "harvest_linear.h"
-#include "harvest_retirement.h"
-#include "health_state.h"
-#include "period_range.h"
-#include <gtest/gtest.h>
+#include "healthcare/harvest_composite.h"
 
 #include <iostream>
 #include <memory>
 
+#include <gtest/gtest.h>
+
+#include "healthcare/harvest_linear.h"
+#include "healthcare/harvest_retirement.h"
+#include "healthcare/health_state.h"
+#include "healthcare/period_range.h"
+
 class HarvestCompositeTest : public ::testing::Test {
-public:
+ public:
   HarvestCompositeTest()
       : state_(0, 0, 0, 0),
         harvest_(std::make_unique<healthcare::HarvestComposite>()) {}
 
-protected:
+ protected:
   virtual void SetUp() {
     state_ = healthcare::HealthState(2, 60, 20, 140);
     harvest1_ = std::make_unique<healthcare::HarvestLinear>(1);

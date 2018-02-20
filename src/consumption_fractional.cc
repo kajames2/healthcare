@@ -1,4 +1,4 @@
-#include "consumption_fractional.h"
+#include "healthcare/consumption_fractional.h"
 
 namespace healthcare {
 
@@ -9,4 +9,4 @@ double ConsumptionFractional::GetLifeEnjoyment(int health,
   return health * life_investment / (life_investment + j_);
 }
 
-} // namespace healthcare
+}  // namespace healthcare

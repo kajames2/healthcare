@@ -1,16 +1,16 @@
-#include "harvest_linear.h"
-#include "health_state.h"
-#include <gtest/gtest.h>
+#include "healthcare/harvest_linear.h"
 
 #include <memory>
 
-class HarvestLinearTest : public ::testing::Test {
-public:
-  HarvestLinearTest()
-      : state_(0, 0, 0, 0)
-      , harvest_() {}
+#include <gtest/gtest.h>
 
-protected:
+#include "healthcare/health_state.h"
+
+class HarvestLinearTest : public ::testing::Test {
+ public:
+  HarvestLinearTest() : state_(0, 0, 0, 0), harvest_() {}
+
+ protected:
   virtual void SetUp() {
     state_ = healthcare::HealthState(1, 60, 20, 0);
     harvest_ = std::make_unique<healthcare::HarvestLinear>(0.75);
