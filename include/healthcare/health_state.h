@@ -29,7 +29,7 @@ struct HealthState {
         investment_cash(0),
         investment_health(0),
         life_enjoyment(0) {}
-
+  
   int period;
   int health;
   int cash;

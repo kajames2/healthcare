@@ -17,8 +17,8 @@ class RegenerationPrecomputeDecorator : public Regeneration {
 
  private:
   void Precompute(const Regeneration &regen);
-  std::vector<std::array<int, 101>> cache_;
-  std::array<std::array<int, 101>, 101> cache2_;
+  std::vector<std::array<int, 101>> regen_cache_;
+  std::array<std::array<int, 101>, 101> cost_cache_;
 };
 
 }  // namespace healthcare

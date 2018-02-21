@@ -5,8 +5,9 @@
 #include <vector>
 
 #include "healthcare/harvest.h"
-#include "healthcare/health_state.h"
-#include "healthcare/period_range.h"
+#include "period_range.h"
+
+class HealthState;
 
 namespace healthcare {
 class HarvestComposite : public Harvest {

@@ -11,7 +11,7 @@ HarvestComposite::HarvestComposite() : harvests_(), ranges_() {}
 
 bool HarvestComposite::IsWorking(const HealthState &state) const {
   int i = GetHarvestIndex(state.period);
-  if (i == ranges_.size()) {
+  if (i == -1) {
     return false;
   }
   return harvests_[i]->IsWorking(state);
@@ -19,7 +19,7 @@ bool HarvestComposite::IsWorking(const HealthState &state) const {
 
 int HarvestComposite::GetHarvest(const HealthState &state) const {
   int i = GetHarvestIndex(state.period);
-  if (i == ranges_.size()) {
+  if (i == -1) {
     return 0;
   }
   return harvests_[i]->GetHarvest(state);
@@ -37,6 +37,6 @@ int HarvestComposite::GetHarvestIndex(int period) const {
       return i;
     }
   }
-  return ranges_.size();
+  return -1;
 }
 }  // namespace healthcare
