@@ -1,8 +1,8 @@
-#include "healthcare/consumption_increasing_decay.h"
+#include <gtest/gtest.h>
 
 #include <memory>
 
-#include <gtest/gtest.h>
+#include "healthcare/consumption_increasing_decay.h"
 
 class ConsumptionIncreasingDecayTest : public ::testing::Test {
  public:

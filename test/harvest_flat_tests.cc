@@ -1,9 +1,8 @@
-#include "healthcare/harvest_flat.h"
+#include <gtest/gtest.h>
 
 #include <memory>
 
-#include <gtest/gtest.h>
-
+#include "healthcare/harvest_flat.h"
 #include "healthcare/health_state.h"
 
 class HarvestFlatTest : public ::testing::Test {

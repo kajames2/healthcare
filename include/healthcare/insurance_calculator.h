@@ -21,4 +21,4 @@ class InsuranceCalculator {
 
 }  // namespace healthcaredp
 
-#endif  //_HEALTHCARE_INSURANCE_CALCULATOR_H_
+#endif  // _HEALTHCARE_INSURANCE_CALCULATOR_H_

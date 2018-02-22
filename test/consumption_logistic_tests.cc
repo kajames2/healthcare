@@ -1,8 +1,8 @@
-#include "healthcare/consumption_logistic.h"
+#include <gtest/gtest.h>
 
 #include <memory>
 
-#include <gtest/gtest.h>
+#include "healthcare/consumption_logistic.h"
 
 class ConsumptionLogisticTest : public ::testing::Test {
  public:

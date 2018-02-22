@@ -1,7 +1,8 @@
 #ifndef _HEALTHCARE_REGENERATION_SHIFTED_LOGISTIC_H_
 #define _HEALTHCARE_REGENERATION_SHIFTED_LOGISTIC_H_
 
-#include "regeneration.h"
+#include "healthcare/regeneration.h"
+
 namespace healthcare {
 
 class RegenerationShiftedLogistic : public Regeneration {

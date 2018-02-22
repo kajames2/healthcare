@@ -10,7 +10,8 @@ namespace healthcaredp {
 template <typename T>
 class ProbabilityPeriodDefined : public genericdp::ProbabilityStrategy<T> {
  public:
-  ProbabilityPeriodDefined(std::vector<double> probs) : probs_(probs) {}
+  explicit ProbabilityPeriodDefined(std::vector<double> probs)
+      : probs_(probs) {}
   double GetProbability(const T &state) const override {
     return probs_[state.period];
   }
@@ -21,4 +22,4 @@ class ProbabilityPeriodDefined : public genericdp::ProbabilityStrategy<T> {
 
 }  // namespace healthcaredp
 
-#endif  //_HEALTHCARE_PROBABILITY_PERIOD_DEFINED_H_
+#endif  // _HEALTHCARE_PROBABILITY_PERIOD_DEFINED_H_

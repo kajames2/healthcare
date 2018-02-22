@@ -1,8 +1,8 @@
-#include "healthcare/regeneration_shifted_logistic.h"
+#include <gtest/gtest.h>
 
 #include <memory>
 
-#include <gtest/gtest.h>
+#include "healthcare/regeneration_shifted_logistic.h"
 
 class RegenerationShiftedLogisticTest : public ::testing::Test {
  public:

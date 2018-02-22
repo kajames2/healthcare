@@ -1,9 +1,8 @@
-#include "healthcare/harvest_retirement.h"
+#include <gtest/gtest.h>
 
 #include <memory>
 
-#include <gtest/gtest.h>
-
+#include "healthcare/harvest_retirement.h"
 #include "healthcare/health_state.h"
 
 class HarvestRetirementTest : public ::testing::Test {

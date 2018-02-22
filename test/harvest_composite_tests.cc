@@ -1,10 +1,9 @@
-#include "healthcare/harvest_composite.h"
+#include <gtest/gtest.h>
 
 #include <iostream>
 #include <memory>
 
-#include <gtest/gtest.h>
-
+#include "healthcare/harvest_composite.h"
 #include "healthcare/harvest_linear.h"
 #include "healthcare/harvest_retirement.h"
 #include "healthcare/health_state.h"

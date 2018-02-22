@@ -1,9 +1,8 @@
-#include "healthcare/degeneration_linear.h"
+#include <gtest/gtest.h>
 
 #include <memory>
 
-#include <gtest/gtest.h>
-
+#include "healthcare/degeneration_linear.h"
 #include "healthcare/health_state.h"
 
 class DegenerationLinearTest : public ::testing::Test {

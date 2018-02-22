@@ -1,8 +1,8 @@
-#include "healthcare/consumption_fractional.h"
+#include <gtest/gtest.h>
 
 #include <memory>
 
-#include <gtest/gtest.h>
+#include "healthcare/consumption_fractional.h"
 
 class ConsumptionFractionalTest : public ::testing::Test {
  public:

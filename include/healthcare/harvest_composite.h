@@ -5,7 +5,7 @@
 #include <vector>
 
 #include "healthcare/harvest.h"
-#include "period_range.h"
+#include "healthcare/period_range.h"
 
 class HealthState;
 

@@ -12,4 +12,4 @@ class ProbabilityStrategy {
 
 }  // namespace genericdp
 
-#endif  //_HEALTHCARE_PROBABILITY_STRATEGY_H_
+#endif  // _HEALTHCARE_PROBABILITY_STRATEGY_H_

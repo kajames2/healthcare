@@ -1,9 +1,8 @@
-#include "healthcare/harvest_linear.h"
+#include <gtest/gtest.h>
 
 #include <memory>
 
-#include <gtest/gtest.h>
-
+#include "healthcare/harvest_linear.h"
 #include "healthcare/health_state.h"
 
 class HarvestLinearTest : public ::testing::Test {

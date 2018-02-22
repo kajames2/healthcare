@@ -1,9 +1,10 @@
 #ifndef _HEALTHCARE_FITNESS_MODULATED_PROBABILITY_H_
 #define _HEALTHCARE_FITNESS_MODULATED_PROBABILITY_H_
 
+#include <memory>
 #include <vector>
 
-#include "healthcare/fitness_dp_health_state.h"
+#include "healthcare/health_state_fitness.h"
 #include "healthcare/probability_strategy.h"
 
 namespace healthcaredp {
@@ -26,4 +27,4 @@ class FitnessModulatedProbability : public genericdp::ProbabilityStrategy<T> {
 
 }  // namespace healthcaredp
 
-#endif  //_HEALTHCARE_FITNESS_MODULATED_PROBABILITY_H_
+#endif  // _HEALTHCARE_FITNESS_MODULATED_PROBABILITY_H_

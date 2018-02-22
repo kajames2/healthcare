@@ -1,6 +1,6 @@
-#include "healthcare/health_state.h"
-
 #include <gtest/gtest.h>
+
+#include "healthcare/health_state.h"
 
 class HealthStateTest : public ::testing::Test {
  public:
