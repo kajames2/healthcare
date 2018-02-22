@@ -4,8 +4,8 @@
 namespace healthcare {
 class RetirementIncome {
  public:
-  RetirementIncome(int n_job_periods, double earning_frac);
-  int GetIncome(int period, int total_job) const;
+  RetirementIncome(int n_working_periods, double earning_frac);
+  int GetIncome(int period, int lifetime_earnings) const;
 
  private:
   double earning_frac_;
