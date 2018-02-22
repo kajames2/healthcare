@@ -1,51 +1,50 @@
 #ifndef _HEALTHCARE_HEALTH_STATE_H_
 #define _HEALTHCARE_HEALTH_STATE_H_
 
+#include "healthcare/regeneration.h"
+
 namespace healthcare {
-struct HealthState {
+class HealthState {
+ public:
   HealthState()
-      : period(0),
-        health(0),
-        cash(0),
-        total_working_harvest(0),
-        harvest(0),
-        life_investment(0),
-        health_investment(0),
-        end_health(0),
-        end_cash(0),
-        investment_cash(0),
-        investment_health(0),
-        life_enjoyment(0) {}
-  HealthState(int p, int h, int c, int twh)
-      : period(p),
-        health(h),
-        cash(c),
-        total_working_harvest(twh),
-        harvest(0),
-        life_investment(0),
-        health_investment(0),
-        end_health(0),
-        end_cash(0),
-        investment_cash(0),
-        investment_health(0),
-        life_enjoyment(0) {}
+      : age_(0),
+        health_(0),
+        cash_(0),
+        harvest_(0),
+        life_investment_(0),
+        health_investment_(0),
+        life_enjoyment_(0) {}
+  HealthState(int p, int h, int c)
+      : age_(p),
+        health_(h),
+        cash_(c),
+        harvest_(0),
+        life_investment_(0),
+        health_investment_(0),
+        life_enjoyment_(0) {}
 
-  int period;
-  int health;
-  int cash;
-  int total_working_harvest;
+  void GainHealth(int health_gain);
+  void LoseHealth(int health_lose);
+  void RegainHealth(Regeneration* regen);
+  void Age();
+  bool IsAlive() const;
+  int GetPeriod() const { return age_; }
+  int GetHealthInvestment() const { return health_investment_; }
+  int GetLifeInvestment() const { return life_investment_; }
+  int GetHealth() const { return health_; }
 
-  int investment_cash;
-  int investment_health;
+ private:
+  bool is_dead_;
+  int age_;
+  int health_;
+  int cash_;
+  int total_working_harvest_;
 
-  int life_investment;
-  int health_investment;
-  int harvest;
-  int end_health;
-  int end_cash;
-  double life_enjoyment;
+  int life_investment_;
+  int health_investment_;
+  int harvest_;
+  double life_enjoyment_;
 };
 
-bool IsAlive(const HealthState &state);
 }  // namespace healthcare
 #endif  // _HEALTHCARE_HEALTH_STATE_H_

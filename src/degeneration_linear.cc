@@ -10,8 +10,8 @@ DegenerationLinear::DegenerationLinear(double degen_intercept,
                                        double degen_slope)
     : degen_intercept_(degen_intercept), degen_slope_(degen_slope) {}
 
-int DegenerationLinear::GetDegeneration(int period) const {
-  return std::round(degen_intercept_ + degen_slope_ * period);
+int DegenerationLinear::GetDegeneration(int age) const {
+  return std::round(degen_intercept_ + degen_slope_ * age);
 }
 
 }  // namespace healthcare

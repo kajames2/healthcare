@@ -2,14 +2,13 @@
 #define _HEALTHCARE_HARVEST_FLAT_H_
 
 #include "healthcare/harvest.h"
-#include "healthcare/health_state.h"
 
 namespace healthcare {
 
 class HarvestFlat : public Harvest {
  public:
   explicit HarvestFlat(int harvest) : harvest_(harvest) {}
-  int GetHarvest(const HealthState &state) const override { return harvest_; };
+  int GetHarvest(int age, int health) const override { return harvest_; };
 
  private:
   int harvest_;

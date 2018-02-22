@@ -8,7 +8,7 @@ class DegenerationLinear : public Degeneration {
  public:
   explicit DegenerationLinear(double degen_intercept);
   DegenerationLinear(double degen_intercept, double degen_slope);
-  int GetDegeneration(int period) const override;
+  int GetDegeneration(int age) const override;
 
  private:
   double degen_slope_;
