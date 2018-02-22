@@ -19,7 +19,7 @@ void HealthState::LoseHealth(int health_loss) {
 }
 
 
-// void HealthState::Harvest(Harvest* harvest) {
+// void HealthState::Job(Job* job) {
   
 // }
 

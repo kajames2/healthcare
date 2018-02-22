@@ -10,7 +10,7 @@ class HealthState {
       : age_(0),
         health_(0),
         cash_(0),
-        harvest_(0),
+        job_(0),
         life_investment_(0),
         health_investment_(0),
         life_enjoyment_(0) {}
@@ -18,7 +18,7 @@ class HealthState {
       : age_(p),
         health_(h),
         cash_(c),
-        harvest_(0),
+        job_(0),
         life_investment_(0),
         health_investment_(0),
         life_enjoyment_(0) {}
@@ -38,11 +38,11 @@ class HealthState {
   int age_;
   int health_;
   int cash_;
-  int total_working_harvest_;
+  int total_working_job_;
 
   int life_investment_;
   int health_investment_;
-  int harvest_;
+  int job_;
   double life_enjoyment_;
 };
 
