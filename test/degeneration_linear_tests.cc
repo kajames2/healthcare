@@ -18,5 +18,5 @@ class DegenerationLinearTest : public ::testing::Test {
 };
 
 TEST_F(DegenerationLinearTest, GetDegeneration) {
-  ASSERT_EQ(22, degen_->GetDegeneration(4));
+  ASSERT_EQ(22, degen_->GetDegeneration(4, 10));
 }

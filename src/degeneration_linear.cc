@@ -10,7 +10,7 @@ DegenerationLinear::DegenerationLinear(double degen_intercept,
                                        double degen_slope)
     : degen_intercept_(degen_intercept), degen_slope_(degen_slope) {}
 
-int DegenerationLinear::GetDegeneration(int age) const {
+int DegenerationLinear::GetDegeneration(int age, int health) const {
   return std::round(degen_intercept_ + degen_slope_ * age);
 }
 

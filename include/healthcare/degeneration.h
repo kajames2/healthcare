@@ -5,7 +5,7 @@ namespace healthcare {
 
 class Degeneration {
  public:
-  virtual int GetDegeneration(int age) const = 0;
+  virtual int GetDegeneration(int age, int health) const = 0;
   virtual ~Degeneration() {}
 };
 

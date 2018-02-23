@@ -1,4 +1,4 @@
-#include "healthcare/health_status.h"
+#include "healthcare/person.h"
 
 #include <algorithm>
 
@@ -9,7 +9,7 @@
 
 namespace healthcare {
 
-HealthStatus::HealthStatus()
+Person::Person()
     : age_(0),
       health_(0),
       cash_(0),
@@ -17,7 +17,7 @@ HealthStatus::HealthStatus()
       health_spending_(0),
       life_enjoyment_(0),
       is_dead_(true) {}
-HealthStatus::HealthStatus(int a, int h, int c)
+Person::Person(int a, int h, int c)
     : age_(a),
       health_(h),
       cash_(c),
@@ -26,11 +26,9 @@ HealthStatus::HealthStatus(int a, int h, int c)
       life_enjoyment_(0),
       is_dead_(a <= 0) {}
 
-void HealthStatus::Work(const Job* job) {
-  cash_ += job->GetEarnings(age_, health_);
-}
+void Person::Work(const Job* job) { cash_ += job->GetEarnings(age_, health_); }
 
-void HealthStatus::RegainHealth(const Regeneration* regen) {
+void Person::RegainHealth(const Regeneration* regen) {
   if (IsAlive()) {
     int health_gained = regen->GetHealthRegained(health_, health_spending_);
     GainHealth(health_gained);
@@ -38,30 +36,30 @@ void HealthStatus::RegainHealth(const Regeneration* regen) {
   }
 }
 
-void HealthStatus::Degenerate(const Degeneration* degen) {
-  LoseHealth(degen->GetDegeneration(age_));
+void Person::Degenerate(const Degeneration* degen) {
+  LoseHealth(degen->GetDegeneration(age_, health_));
 }
 
-void HealthStatus::AdvanceInAge() {
+void Person::AdvanceInAge() {
   age_++;
   health_spending_ = 0;
   joy_spending_ = 0;
   life_enjoyment_ = 0;
 }
 
-void HealthStatus::Consume(const Consumption* consume) {
+void Person::Consume(const Consumption* consume) {
   if (IsAlive()) {
     life_enjoyment_ += consume->GetLifeEnjoyment(health_, joy_spending_);
     cash_ -= joy_spending_;
   }
 }
 
-void HealthStatus::GainHealth(int health_gain) {
+void Person::GainHealth(int health_gain) {
   health_ += health_gain;
   health_ = std::min(health_, 100);
 }
 
-void HealthStatus::LoseHealth(int health_loss) {
+void Person::LoseHealth(int health_loss) {
   health_ -= health_loss;
   if (health_ <= 0) {
     health_ = 0;
