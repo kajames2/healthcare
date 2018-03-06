@@ -2,11 +2,11 @@
 
 #include <memory>
 
-#include "healthcare/consumption_fractional.h"
-#include "healthcare/degeneration_linear.h"
+#include "healthcare/consumption/fractional.h"
+#include "healthcare/degeneration/linear.h"
+#include "healthcare/job/flat.h"
 #include "healthcare/person.h"
-#include "healthcare/job_flat.h"
-#include "healthcare/regeneration_fractional.h"
+#include "healthcare/regeneration/fractional.h"
 
 class PersonTest : public ::testing::Test {
  public:
