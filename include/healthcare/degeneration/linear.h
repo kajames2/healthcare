@@ -8,13 +8,13 @@ namespace degeneration {
 
 class Linear : public Degeneration {
  public:
-  explicit Linear(double degen_intercept);
-  Linear(double degen_intercept, double degen_slope);
+  explicit Linear(float degen_intercept);
+  Linear(float degen_intercept, float degen_slope);
   int GetDegeneration(int age, int health) const override;
 
  private:
-  double degen_slope_;
-  double degen_intercept_;
+  float degen_slope_;
+  float degen_intercept_;
 };
 
 }  // namespace degeneration

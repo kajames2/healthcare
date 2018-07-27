@@ -4,12 +4,12 @@
 #include <memory>
 #include <vector>
 
-#include "healthcare/probability_strategy.h"
+#include "healthcare/probability.h"
 
 namespace healthcaredp {
 
 template <typename T>
-class ProbabilityFitnessModulated : public genericdp::ProbabilityStrategy<T> {
+class ProbabilityFitnessModulated : public genericdp::Probability<T> {
  public:
   ProbabilityFitnessModulated(
       std::shared_ptr<genericdp::ProbabilityStrategy<T>> prob,

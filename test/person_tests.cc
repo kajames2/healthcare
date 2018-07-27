@@ -14,8 +14,8 @@ class PersonTest : public ::testing::Test {
 
  protected:
   virtual void SetUp() {
-    state_ = healthcare::Person(2, 80, 20);
-    state_ = healthcare::Person(5, 5, 50);
+    state_ = healthcare::Person{2, 80, 20};
+    state_ = healthcare::Person{5, 5, 50};
   }
 
   healthcare::Person state_, state_wounded_;

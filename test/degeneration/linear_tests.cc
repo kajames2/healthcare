@@ -6,9 +6,9 @@
 
 namespace degenerationtests {
 
-class LinearTest : public ::testing::Test {
+class DegenerationLinearTest : public ::testing::Test {
  public:
-  LinearTest() : degen_() {}
+  DegenerationLinearTest() : degen_() {}
 
  protected:
   virtual void SetUp() {
@@ -19,7 +19,7 @@ class LinearTest : public ::testing::Test {
   std::unique_ptr<healthcare::degeneration::Linear> degen_;
 };
 
-TEST_F(LinearTest, GetDegeneration) {
+TEST_F(DegenerationLinearTest, GetDegeneration) {
   ASSERT_EQ(22, degen_->GetDegeneration(4, 10));
 }
 

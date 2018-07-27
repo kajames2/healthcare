@@ -10,8 +10,8 @@ class PersonRetires : public Person {
  public:
   PersonRetires();
   PersonRetires(int a, int h, int c, int le);
-  void Work(const Job* job);
-  void CollectRetirement(const RetirementIncome* retirement);
+  void Work(const Job& job) override;
+  void CollectRetirement(const RetirementIncome& retirement);
   int GetLifetimeEarnings() const { return lifetime_earnings_; }
 
  private:

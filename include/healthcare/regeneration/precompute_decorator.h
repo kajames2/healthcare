@@ -13,8 +13,13 @@ class PrecomputeDecorator : public Regeneration {
  public:
   explicit PrecomputeDecorator(const Regeneration &regen);
   PrecomputeDecorator(const Regeneration &regen, int max_investment);
-  int GetHealthRegained(int health, int health_investment) const override;
-  int GetRegainCost(int health, int health_regained) const override;
+  inline int GetHealthRegained(int health,
+                               int health_investment) const override {
+    return regen_cache_[health_investment][health];
+  }
+  inline int GetRegainCost(int health, int health_regained) const override {
+    return cost_cache_[health_regained][health];
+  }
 
  private:
   void Precompute(const Regeneration &regen);

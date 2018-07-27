@@ -5,10 +5,10 @@
 namespace healthcare {
 namespace job {
 
-Linear::Linear(double rate) : rate_(rate) {}
+Linear::Linear(float rate, int intercept) : rate_(rate), intercept_(intercept) {}
 
 int Linear::GetEarnings(int age, int health) const {
-  return std::round(health * rate_);
+  return std::round(health * rate_ + intercept_);
 }
 
 }  // namespace job

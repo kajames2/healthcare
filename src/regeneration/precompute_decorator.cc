@@ -14,15 +14,6 @@ PrecomputeDecorator::PrecomputeDecorator(const Regeneration &regen,
   Precompute(regen);
 }
 
-int PrecomputeDecorator::GetHealthRegained(int health,
-                                           int health_investment) const {
-  return regen_cache_[health_investment][health];
-}
-
-int PrecomputeDecorator::GetRegainCost(int health, int health_regained) const {
-  return cost_cache_[health_regained][health];
-}
-
 void PrecomputeDecorator::Precompute(const Regeneration &regen) {
   for (int hi = 0; hi < regen_cache_.size(); ++hi) {
     for (int h = 0; h <= 100; ++h) {
